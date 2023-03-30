@@ -17,7 +17,7 @@ function getComputerChoice (){
 const getUserChoice = (userInput) => {
     userInput = prompt('Pick your poison. Choose rock, paper, or scissors').toLowerCase();
     if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
-        return userInput;
+        return userInput
     } else {
         return 'Error'
     }
@@ -26,9 +26,9 @@ const getUserChoice = (userInput) => {
 //compare two results and determine winner
 const determineWinner = (getUserChoice, getComputerChoice) => {
     if (getUserChoice === getComputerChoice) {
-        return 'The game is a tie';
+        return 'The game is a tie.'
     }
-    if (
+    else if (
         (getUserChoice === 'rock' && getComputerChoice === 'scissors') ||
         (getUserChoice === 'scissors' && getComputerChoice === 'paper') ||
         (getUserChoice === 'paper' && getComputerChoice === 'rock')
@@ -39,3 +39,17 @@ const determineWinner = (getUserChoice, getComputerChoice) => {
         return 'You lost!'
     }
 }
+
+const playRound = (input) => {
+	let userChoice = getUserChoice(input);
+    let computerChoice = getComputerChoice();
+  if(userChoice === 'Error'){
+    return 'Error: Invalid selection. Choose rock, paper, or scissors'
+  }else{
+  	return 'You chose ' + userChoice + '.' + '\n' +
+    'The computer chose ' + computerChoice + '.' + '\n' +
+    determineWinner (userChoice, computerChoice)
+  }
+};
+
+console.log (playRound())
