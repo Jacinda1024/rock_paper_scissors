@@ -12,3 +12,14 @@ function getComputerChoice (){
             return 'Select a valid option'
     }
 }
+
+//get users choice and make case insensitive
+const getUserChoice = (userInput) => {
+    userInput = prompt('Pick your poison. Choose rock, paper, or scissors').toLowerCase();
+    if(userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
+        return userInput;
+    } else {
+        return 'Error'
+    }
+
+}
