@@ -12,6 +12,3 @@ function getComputerChoice (){
             return 'Select a valid option'
     }
 }
-
-
-
