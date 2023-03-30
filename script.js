@@ -21,5 +21,21 @@ const getUserChoice = (userInput) => {
     } else {
         return 'Error'
     }
+}
 
+//compare two results and determine winner
+const determineWinner = (getUserChoice, getComputerChoice) => {
+    if (getUserChoice === getComputerChoice) {
+        return 'The game is a tie';
+    }
+    if (
+        (getUserChoice === 'rock' && getComputerChoice === 'scissors') ||
+        (getUserChoice === 'scissors' && getComputerChoice === 'paper') ||
+        (getUserChoice === 'paper' && getComputerChoice === 'rock')
+    ) {
+        return 'You win!'
+    } 
+    else {
+        return 'You lost!'
+    }
 }
