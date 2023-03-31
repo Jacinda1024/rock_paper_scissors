@@ -55,7 +55,7 @@ const playRound = () => {
     determineWinner (userChoice, computerChoice) + '\n' +
     'Player Score:'+ playerScore + ' Computer Score:' + computerScore + ' Draws:' + draws
   }
-};
+}
 
 let playerScore = 0;
 let computerScore = 0;
@@ -73,4 +73,21 @@ function game(){
         return ('Tie Game');
     }
 }
+
 console.log (game())
+
+let newGame = prompt(
+    "Would you like to play again? Choose yes or no.").toLowerCase()
+
+while (newGame !== "yes" && newGame !== "no") {
+        newGame = prompt("Choose yes or no").toLowerCase();
+      }
+
+if (newGame === 'yes'){
+    playerScore = 0;
+    computerScore = 0;
+    draws = 0;
+    console.log (game());
+} else if (newGame == 'no'){
+    alert ('Ok, Goodbye for now.')
+}
