@@ -26,6 +26,7 @@ const getUserChoice = (userInput) => {
 //compare two results and determine winner
 const determineWinner = (getUserChoice, getComputerChoice) => {
     if (getUserChoice === getComputerChoice) {
+        draws++
         return 'The game is a tie.'
     }
     else if (
@@ -33,9 +34,11 @@ const determineWinner = (getUserChoice, getComputerChoice) => {
         (getUserChoice === 'scissors' && getComputerChoice === 'paper') ||
         (getUserChoice === 'paper' && getComputerChoice === 'rock')
     ) {
+        playerScore++
         return 'You win!'
     } 
     else {
+        computerScore++
         return 'You lost!'
     }
 }
@@ -49,7 +52,8 @@ const playRound = () => {
   }else{
   	return 'You chose ' + userChoice + '.' + '\n' +
     'The computer chose ' + computerChoice + '.' + '\n' +
-    determineWinner (userChoice, computerChoice)
+    determineWinner (userChoice, computerChoice) + '\n' +
+    'Player Score:'+ playerScore + ' Computer Score:' + computerScore + ' Draws:' + draws
   }
 };
 
@@ -57,11 +61,16 @@ let playerScore = 0;
 let computerScore = 0;
 let draws = 0;
 
+//play game til best 3 out of 5
 function game(){
-    for(var i=0; i<5; i++){
+    while (playerScore < 3 && computerScore < 3){
        console.log (playRound());
-
+    } if (playerScore == 3){
+        return ('Player Won');
+    } else if (computerScore == 3){
+        return ('Computer Won');
+    } else {
+        return ('Tie Game');
     }
 }
-
-game()
+console.log (game())
