@@ -40,8 +40,9 @@ const determineWinner = (getUserChoice, getComputerChoice) => {
     }
 }
 
-const playRound = (input) => {
-	let userChoice = getUserChoice(input);
+//play one round of the game
+const playRound = () => {
+	let userChoice = getUserChoice();
     let computerChoice = getComputerChoice();
   if(userChoice === 'Error'){
     return 'Error: Invalid selection. Choose rock, paper, or scissors'
@@ -52,4 +53,15 @@ const playRound = (input) => {
   }
 };
 
-console.log (playRound())
+let playerScore = 0;
+let computerScore = 0;
+let draws = 0;
+
+function game(){
+    for(var i=0; i<5; i++){
+       console.log (playRound());
+
+    }
+}
+
+game()
