@@ -75,19 +75,20 @@ function game(){
 }
 
 console.log (game())
+newGame()
 
-let newGame = prompt(
-    "Would you like to play again? Choose yes or no.").toLowerCase()
-
-while (newGame !== "yes" && newGame !== "no") {
-        newGame = prompt("Choose yes or no").toLowerCase();
-      }
-
-if (newGame === 'yes'){
-    playerScore = 0;
-    computerScore = 0;
-    draws = 0;
-    console.log (game());
-} else if (newGame == 'no'){
-    alert ('Ok, Goodbye for now.')
+function newGame (choose){
+    choose = prompt ("Would you like to play again? Choose yes or no.").toLowerCase()
+    while (choose !== 'yes' && choose !== 'no'){
+        choose = prompt ('Choose yes or no').toLowerCase()
+    }
+    if (choose === 'yes'){
+        playerScore = 0;
+        computerScore = 0;
+        draws = 0;
+        console.log (game());
+        newGame()
+    } else if (choose == 'no'){
+        alert ('Ok, Goodbye for now.')
+    }
 }
